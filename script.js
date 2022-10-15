@@ -1,31 +1,24 @@
-document.querySelector('.mini_img_1').onmouseenter = function (e) {
-    document.querySelector('.full_img').src = 'images/PhotoFull.png';
-}
+const previews = document.querySelectorAll('.mini_img');
+previews.forEach((item) => {
+    item.addEventListener('mouseenter', function () {
+        const src = this.getAttribute('data-full');
+        document.querySelector('.full_img').src = src;
+    })
+})
 
-document.querySelector('.mini_img_2').onmouseenter = function (e) {
-    document.querySelector('.full_img').src = 'images/Photo2.png';
-}
-
-document.querySelector('.mini_img_3').onmouseenter = function (e) {
-    document.querySelector('.full_img').src = 'images/Photo3.png';
-}
-
+const el = document.querySelector('.product__count__text');
 document.querySelector('.decrease__btn').onclick = function (e) {
-    var el = document.querySelector('.product__count__text');
     if (parseInt(el.textContent) > 1) {
         el.textContent = parseInt(el.textContent) - 1;
     }
 }
 
 document.querySelector('.increase__btn').onclick = function (e) {
-    var el = document.querySelector('.product__count__text');
     el.textContent = parseInt(el.textContent) + 1;
 }
 
 document.querySelector('.blue__btn').onclick = function (e) {
-    var el = document.querySelector('.product__count__text')
-    var count = parseInt(el.textContent);
-
+    const count = parseInt(el.textContent);
     if(count == 1) {
         toastr.success('В корзину добавлен '+ el.textContent + ' товар');
     }

@@ -5,10 +5,6 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-}
-
 .product {
     display: flex;
     flex-direction: row;
